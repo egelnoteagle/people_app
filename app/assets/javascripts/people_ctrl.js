@@ -23,6 +23,9 @@
           $scope.people.push(response.data);
           $scope.formName = null;
           $scope.formBio = null;
+          $scope.errors = null;
+        }, function(errorResponse) {
+          $scope.errors = errorResponse.data.errors;
         });
     };
 
