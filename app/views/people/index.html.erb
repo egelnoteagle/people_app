@@ -1,10 +1,10 @@
 <div ng-app="app">
   {{ 1 + 1 }}
   <h1>Interesting People</h1>
-  <div ng-controller="peopleCtrl">
+  <div ng-controller="peopleCtrl" ng-init="setup()">
     <div ng-repeat="person in people track by $index">
       <h2 ng-click="toggleBio(person)">{{ person.name }}</h2>
-      <div ng-class="{strike: person.bioVisible}">
+      <div ng-if="person.bioVisible">
         <h4>{{ person.bio }}</h4>
         <p ng-click="deletePerson($index)">Delete</p>
       </div>
@@ -20,4 +20,4 @@
       <p>Number of People: {{ people.length }}</p>
     </div>
   </div>
-</div>
+</div> <!-- end of ng-app -->
