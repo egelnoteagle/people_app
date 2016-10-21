@@ -13,17 +13,17 @@
     };
 
     $scope.addPerson = function(newName, newBio) {
-      if (newName && newBio) {
         var newPerson = {
                           name: newName,
                           bio: newBio,
                           bioVisible: false
                         };
 
-        $scope.people.push(newPerson);
-        $scope.formName = null;
-        $scope.formBio = null;
-      }
+        $http.post("/api/v1/people.json", newPerson).then(function(response) {
+          $scope.people.push(response.data);
+          $scope.formName = null;
+          $scope.formBio = null;
+        });
     };
 
     $scope.deletePerson = function(index) {
