@@ -2,3 +2,17 @@
   text-decoration: line-through;
   color: green;
 }
+
+.ng-enter, .ng-move{
+  -webkit-animation: jello 1s;
+  -moz-animation: jello 1s;
+  -o-animation: jello 1s;
+  animation: jello 1s;
+}
+
+.ng-leave{
+  -webkit-animation: fadeOut 1s;
+  -moz-animation: fadeOut 1s;
+  -o-animation: fadeOut 1s;
+  animation: fadeOut 1s;
+}
