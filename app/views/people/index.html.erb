@@ -2,11 +2,14 @@
   {{ 1 + 1 }}
   <h1>Interesting People</h1>
   <div ng-controller="peopleCtrl" ng-init="setup()">
-    <div ng-repeat="person in people track by $index">
+    <input type="text" ng-model="nameFilter">
+    <button ng-click="toggleOrder('name')">Order by Name</button>
+    <button ng-click="toggleOrder('bio')">Order by Bio</button>
+    <div ng-repeat="person in people | filter: { name: nameFilter } | orderBy: orderAttribute:descending ">
       <h2 ng-click="toggleBio(person)">{{ person.name }}</h2>
       <div ng-if="person.bioVisible">
         <h4>{{ person.bio }}</h4>
-        <p ng-click="deletePerson($index)">Delete</p>
+        <p ng-click="deletePerson(person)">Delete</p>
       </div>
     </div>
 
